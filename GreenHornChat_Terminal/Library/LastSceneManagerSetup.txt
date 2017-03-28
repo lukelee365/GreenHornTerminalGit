@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/TerminalScreen/TerminalScene.unity
-  isLoaded: 1
-  isActive: 1

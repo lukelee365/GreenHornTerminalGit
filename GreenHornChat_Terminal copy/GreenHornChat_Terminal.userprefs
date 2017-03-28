@@ -1,0 +1,20 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/ChatTextFilled.cs">
+    <Files>
+      <File FileName="Assets/Script/PanelManager.cs" Line="34" Column="3" />
+      <File FileName="Assets/TransferUIHandle.cs" Line="17" Column="18" />
+      <File FileName="Assets/NotificationControl.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/AutoScrollDown.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/GameManager.cs" Line="60" Column="3" />
+      <File FileName="Assets/Script/ChatTextFilled.cs" Line="115" Column="36" />
+      <File FileName="Assets/Script/ProgressTextFiled.cs" Line="106" Column="2" />
+      <File FileName="Assets/DialogueOption.cs" Line="57" Column="42" />
+      <File FileName="Assets/Script/GetTextInput.cs" Line="33" Column="86" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
