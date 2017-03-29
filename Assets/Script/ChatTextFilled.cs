@@ -17,6 +17,7 @@ public class ChatTextFilled : MonoBehaviour {
 	private bool once;  
 	private bool once2;
 	public bool once3;
+	private bool once4;
 	// Use this for initialization
 	void Start () {
 		progressText = GetComponent<ProgressTextFiled> ();
@@ -27,6 +28,7 @@ public class ChatTextFilled : MonoBehaviour {
 		once = true;
 		once2 = true;
 		once3 = true;
+		once4 = true;
 	}
 	
 	// Update is called once per frame
@@ -113,7 +115,7 @@ public class ChatTextFilled : MonoBehaviour {
 							//at end
 							//Delay Last two email for 150s
 
-							Invoke("DelaySecondEmail",150f);
+							Invoke("DelaySecondEmail",100f);
 							//how many buttons need to be enable
 						
 
@@ -147,17 +149,35 @@ public class ChatTextFilled : MonoBehaviour {
 
 						}
 					}
+				}else if (chunkName == "ipcc") {
+					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
+						yield return new WaitForSeconds (interval);
+						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
+						autoScroll.ChatScroll ();
+						if (j == textChunks [i].progressTextModular.Length - 1) {
+							//at end
+							//how many buttons need to be enable
+							dialogueO.EnableDialogueOption(1);
+							dialogueO.dialogue_text [0].text = "So they don't like Arcadia's plans ?";
+
+						}
+					}
 				}else if (chunkName == "end") {
 					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
 						yield return new WaitForSeconds (interval);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
+			
 					}
 				} else {
 					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
 						yield return new WaitForSeconds (interval);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
+						if (j == textChunks [i].progressTextModular.Length - 1) {
+							//finish all the thing break the loop
+							break;
+						}
 					}
 				}
 			} 
@@ -184,6 +204,7 @@ public class ChatTextFilled : MonoBehaviour {
 		}
 	}
 
+
 	public void GiveHintAboutTwitter(){
 
 		Debug.Log ("Hint");
@@ -193,11 +214,19 @@ public class ChatTextFilled : MonoBehaviour {
 	}
 
 	void ShowDialogue(){
-		Debug.Log ("Here");
+		
 		if(once3){
 			dialogueO.EnableDialogueOption (1);
 			dialogueO.dialogue_text [0].text = "I'm not sure what to do with this code";
 			once3 = false;
+		}
+	}
+
+	public void OpenIPCCEmail(){
+		if (once4) {
+			dialogueO.EnableDialogueOption (1);
+			dialogueO.dialogue_text [0].text = "What is IPCC ?";
+			once4 = false;
 		}
 	}
 }

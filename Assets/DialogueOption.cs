@@ -41,20 +41,26 @@ public class DialogueOption : MonoBehaviour {
 	}
 	void Option1_Clicked(){
 		if (dialogue_text [0].text == "How can I help ?") {
-			textPanel.text = textPanel.text+"\n"+"<color=Green>"+"How Can I Help ?"+"</color>";
+			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"How Can I Help ?"+"</color>";
 			StartCoroutine(chatText.ShowChat("emailfirst"));
 		} else if (dialogue_text [0].text == "Yes") {
-			textPanel.text = textPanel.text+"\n"+"<color=Green>"+"Yes"+"</color>";
+			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"Yes"+"</color>";
 			StartCoroutine(chatText.ShowChat("yes"));
 		}else if (dialogue_text [0].text == "Who is Vance Kalken ?") {
-			textPanel.text = textPanel.text+"\n"+"<color=Green>"+"Who is Vance Kalken ?"+"</color>";
+			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"Who is Vance Kalken ?"+"</color>";
 			StartCoroutine(chatText.ShowChat("vance"));
 		}else if (dialogue_text [0].text == "Why is he friendly with the folks from Arcadia ?") {
-			textPanel.text = textPanel.text+"\n"+"<color=Green>"+"Why is he friendly with the folks from Arcadia ?"+"</color>";
+			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"Why is he friendly with the folks from Arcadia ?"+"</color>";
 			StartCoroutine(chatText.ShowChat("folks"));
 		}else if (dialogue_text [0].text == "I'm not sure what to do with this code") {
-			textPanel.text = textPanel.text+"\n"+"<color=Green>"+"I'm not sure what to do with this code"+"</color>";
+			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"I'm not sure what to do with this code"+"</color>";
 			StartCoroutine(chatText.ShowChat("hint"));
+		}else if (dialogue_text [0].text == "What is IPCC ?") {
+			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"What is IPCC ?"+"</color>";
+			StartCoroutine(chatText.ShowChat("ipcc"));
+		}else if (dialogue_text [0].text == "So they don't like Arcadia's plans ?") {
+			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"So they don't like Arcadia's plans ?"+"</color>";
+			StartCoroutine(chatText.ShowChat("arcadia"));
 		}
 	}
 
