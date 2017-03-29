@@ -7,9 +7,10 @@ using UnityEngine.SceneManagement;
 public class LogInPage : MonoBehaviour {
 	public InputField mainFiedInput;
 	public QA[] ReplyWithAnswer;
+	public GameObject psd_Invalid;
 	// Use this for initialization
 	void Start () {
-		
+		psd_Invalid.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -35,11 +36,13 @@ public class LogInPage : MonoBehaviour {
 				}
 
 			}
-			if (matchcount == ReplyWithAnswer [i].Typed.Length ) {
+			if (matchcount == ReplyWithAnswer [i].Typed.Length) {
 
-					if (ReplyWithAnswer [i].Reply == "password") {
+				if (ReplyWithAnswer [i].Reply == "password") {
 					SceneManager.LoadScene (1);
 				}
+			} else {
+				psd_Invalid.SetActive (true);
 			}
 		}
 	}

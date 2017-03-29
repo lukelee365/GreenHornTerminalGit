@@ -8,9 +8,11 @@ public class TransferUIHandle : MonoBehaviour {
 	public GameObject step1; 
 	public GameObject step2;
 	public float closeTime = 8f;
+	public GameObject invalidPsd;
 	// Use this for initialization
 	void Start () {
 		chatText = GetComponent<ChatTextFilled> ();
+		invalidPsd.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -20,11 +22,13 @@ public class TransferUIHandle : MonoBehaviour {
 
 	public void post(){
 		
-		if (ui_Psd.text.ToLower () == "password") {
+		if (ui_Psd.text == "31478") {
 
 			step1.SetActive (false);
 			step2.SetActive (true);
 			StartCoroutine (CloseStep2 ());
+		} else {
+			invalidPsd.SetActive (true);
 		}
 	}
 
