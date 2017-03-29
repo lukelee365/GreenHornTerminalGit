@@ -6,9 +6,12 @@ using UnityEngine;
 public class NotificationControl : MonoBehaviour {
 	[HideInInspector]
 	private int numOfNotification;
-	public GameObject notification;
+    public GameObject soundManager;
+    public GameObject notification;
 	public Text textNotification;
-	public GameObject[] mailBeenReaded; //The BG of Each Email Panel
+    private bool playSound;
+    private int oldNumber;
+    public GameObject[] mailBeenReaded; //The BG of Each Email Panel
 	// Use this for initialization
 	void Start () {
 		
@@ -25,7 +28,18 @@ public class NotificationControl : MonoBehaviour {
 					temp++;
 				} 
 			}
-			numOfNotification = temp;
+            if (temp == 4 && oldNumber != 4)
+            {
+                oldNumber = 4;
+                playSound = true;
+            }
+            if (playSound)
+            {
+
+                soundManager.GetComponent<SoundController>().NewMessageSound();
+                playSound = false;
+            }
+            numOfNotification = temp;
 			textNotification.text = numOfNotification.ToString();
 			notification.SetActive (true);
 		}

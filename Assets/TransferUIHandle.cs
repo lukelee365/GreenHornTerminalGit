@@ -7,7 +7,8 @@ public class TransferUIHandle : MonoBehaviour {
 	public InputField ui_Psd;
 	public GameObject step1; 
 	public GameObject step2;
-	public float closeTime = 8f;
+    public AudioSource breachSound;
+    public float closeTime = 8f;
 	public GameObject invalidPsd;
 	// Use this for initialization
 	void Start () {
@@ -26,13 +27,20 @@ public class TransferUIHandle : MonoBehaviour {
 
 			step1.SetActive (false);
 			step2.SetActive (true);
-			StartCoroutine (CloseStep2 ());
+            StartCoroutine(DelaySound());
+            StartCoroutine(CloseStep2 ());
 		} else {
 			invalidPsd.SetActive (true);
 		}
 	}
 
-	IEnumerator CloseStep2(){
+    IEnumerator DelaySound()
+    {
+        yield return new WaitForSeconds((float)3.8);
+        breachSound.Play();
+
+    }
+    IEnumerator CloseStep2(){
 		yield return new WaitForSecondsRealtime (closeTime);
 		step2.SetActive (false);
 		StartCoroutine (chatText.ShowChat ("end"));
