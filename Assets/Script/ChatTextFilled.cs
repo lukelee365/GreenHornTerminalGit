@@ -14,6 +14,7 @@ public class ChatTextFilled : MonoBehaviour {
 	private float timer;
 	private PanelManager pM;
 	private DialogueOption dialogueO;
+
 	private bool once;  
 	private bool once2;
 	public bool once3;
@@ -25,6 +26,7 @@ public class ChatTextFilled : MonoBehaviour {
 		pM = GetComponent<PanelManager> ();
 		dialogueO = GetComponent<DialogueOption> ();
 		timer = Time.time+waitingTime;
+
 		once = true;
 		once2 = true;
 		once3 = true;
@@ -75,6 +77,7 @@ public class ChatTextFilled : MonoBehaviour {
 							//at end
 							dialogueO.EnableDialogueOption(1);
 							dialogueO.dialogue_text [0].text = "How can I help ?";
+
 
 						}
 					}
@@ -157,9 +160,23 @@ public class ChatTextFilled : MonoBehaviour {
 						if (j == textChunks [i].progressTextModular.Length - 1) {
 							//at end
 							//how many buttons need to be enable
+
 							dialogueO.EnableDialogueOption(1);
 							dialogueO.dialogue_text [0].text = "So they don't like Arcadia's plans ?";
 
+						}
+					}
+				}else if (chunkName == "arcadia") {
+					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
+						yield return new WaitForSeconds (interval);
+						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
+						autoScroll.ChatScroll ();
+						if (j == textChunks [i].progressTextModular.Length - 1) {
+							//at end
+							//how many buttons need to be enable
+							if (dialogueO.progressID == 1) {
+								StartCoroutine(ShowChat("emailsecond"));
+							}
 						}
 					}
 				}else if (chunkName == "end") {
@@ -208,7 +225,7 @@ public class ChatTextFilled : MonoBehaviour {
 	public void GiveHintAboutTwitter(){
 
 		Debug.Log ("Hint");
-		Invoke ("ShowDialogue", 100f);
+		Invoke ("ShowDialogue", 30f);
 			
 
 	}
@@ -224,6 +241,7 @@ public class ChatTextFilled : MonoBehaviour {
 
 	public void OpenIPCCEmail(){
 		if (once4) {
+			dialogueO.DisableDialogueOption();
 			dialogueO.EnableDialogueOption (1);
 			dialogueO.dialogue_text [0].text = "What is IPCC ?";
 			once4 = false;

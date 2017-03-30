@@ -11,6 +11,7 @@ public class DialogueOption : MonoBehaviour {
 	public Button dialogue_option4;
 	public Text[] dialogue_text;
 	public Text textPanel;
+	public  int progressID;
 	private ChatTextFilled chatText;
 
 	// Use this for initialization
@@ -43,9 +44,11 @@ public class DialogueOption : MonoBehaviour {
 		if (dialogue_text [0].text == "How can I help ?") {
 			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"How Can I Help ?"+"</color>";
 			StartCoroutine(chatText.ShowChat("emailfirst"));
+			progressID++;
 		} else if (dialogue_text [0].text == "Yes") {
 			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"Yes"+"</color>";
 			StartCoroutine(chatText.ShowChat("yes"));
+			progressID++;
 		}else if (dialogue_text [0].text == "Who is Vance Kalken ?") {
 			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"Who is Vance Kalken ?"+"</color>";
 			StartCoroutine(chatText.ShowChat("vance"));
@@ -57,10 +60,13 @@ public class DialogueOption : MonoBehaviour {
 			StartCoroutine(chatText.ShowChat("hint"));
 		}else if (dialogue_text [0].text == "What is IPCC ?") {
 			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"What is IPCC ?"+"</color>";
+
 			StartCoroutine(chatText.ShowChat("ipcc"));
+
 		}else if (dialogue_text [0].text == "So they don't like Arcadia's plans ?") {
 			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"So they don't like Arcadia's plans ?"+"</color>";
 			StartCoroutine(chatText.ShowChat("arcadia"));
+
 		}
 	}
 

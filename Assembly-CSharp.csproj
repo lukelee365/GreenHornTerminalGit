@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{97EE3D7A-1C42-E55A-8C07-6E97188883A1}</ProjectGuid>
+    <ProjectGuid>{BB10E2BF-0F66-68F1-5472-6F715FD45C47}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -61,6 +61,7 @@
      <Compile Include="Assets\Script\NotePadGatTextInput.cs" />
      <Compile Include="Assets\Script\PanelManager.cs" />
      <Compile Include="Assets\Script\ProgressTextFiled.cs" />
+     <Compile Include="Assets\Script\SoundController.cs" />
      <Compile Include="Assets\TransferUIHandle.cs" />
      <Compile Include="Assets\TrasferAutoClose.cs" />
  <Reference Include="UnityEngine.UI">
