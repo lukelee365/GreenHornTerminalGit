@@ -18,6 +18,7 @@ public class ProgressTextFiled : MonoBehaviour {
 	private AutoScrollDown autoScroll;
 	public GameObject[] EmailsSet1;
 	public GameObject[] EmailsSet2;
+    public GameObject soundManager;
 	private NotificationControl notificationC;
 	// Use this for initialization
 	void Start () {
@@ -61,8 +62,10 @@ public class ProgressTextFiled : MonoBehaviour {
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ProgressScroll ();
 						if (j == textChunks [i].progressTextModular.Length - 1) {
-							//at end
-							EnableEmailSet(EmailsSet1);
+                            //at end
+                            soundManager.GetComponent<SoundController>().NewMessageSound();
+
+                            EnableEmailSet(EmailsSet1);
 							StartCoroutine(chatText.ShowChat("emailsecond"));
 						
 
@@ -74,8 +77,10 @@ public class ProgressTextFiled : MonoBehaviour {
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ProgressScroll ();
 						if (j == textChunks [i].progressTextModular.Length - 1) {
-							//at end
-							autoScroll.ProgressScroll ();
+                            //at end
+                            soundManager.GetComponent<SoundController>().NewMessageSound();
+
+                            autoScroll.ProgressScroll ();
 							EnableEmailSet(EmailsSet2);
 
 						}
