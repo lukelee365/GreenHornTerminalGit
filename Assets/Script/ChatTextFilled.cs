@@ -200,6 +200,11 @@ public class ChatTextFilled : MonoBehaviour {
 							//how many buttons need to be enable
 							soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
 						}
+						if (j == textChunks [i].progressTextModular.Length - 1) {
+							//at end
+							//how many buttons need to be enable
+							dialogueO.DisableDialogueOption();
+						}
 					}
 				} else {
 					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {

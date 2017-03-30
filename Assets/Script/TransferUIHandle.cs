@@ -10,11 +10,12 @@ public class TransferUIHandle : MonoBehaviour {
     public AudioSource breachSound;
     public float closeTime = 8f;
 	public GameObject invalidPsd;
+	private DialogueOption dialogueO;
 	public BallStatus ballStatus;
 	// Use this for initialization
 	void Start () {
 		chatText = GetComponent<ChatTextFilled> ();
-	
+		dialogueO = GetComponent<DialogueOption> ();
 		invalidPsd.SetActive (false);
 	}
 	
@@ -34,6 +35,15 @@ public class TransferUIHandle : MonoBehaviour {
 		} else {
 			invalidPsd.SetActive (true);
 		}
+	}
+
+	public void ShowPasswordPage(){
+		//2 means everthing End
+		if(dialogueO.progressID == 2){
+			step1.SetActive (true);
+			dialogueO.progressID++;
+		}
+
 	}
 
     IEnumerator DelaySound()
