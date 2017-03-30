@@ -51,6 +51,9 @@ public class ProgressTextFiled : MonoBehaviour {
 						yield return new WaitForSeconds (interval);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ProgressScroll ();
+
+
+							
 						if (j == textChunks [i].progressTextModular.Length - 1) {
 							//at end
 							StartCoroutine(chatText.ShowChat("init"));

@@ -14,7 +14,7 @@ public class ChatTextFilled : MonoBehaviour {
 	private float timer;
 	private PanelManager pM;
 	private DialogueOption dialogueO;
-
+	public GameObject soundManager;
 	private bool once;  
 	private bool once2;
 	public bool once3;
@@ -73,6 +73,10 @@ public class ChatTextFilled : MonoBehaviour {
 						yield return new WaitForSeconds (interval);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
+						if (j!= 0) {
+						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
+						}
+
 						if (j == textChunks [i].progressTextModular.Length - 1) {
 							//at end
 							dialogueO.EnableDialogueOption(1);
@@ -86,6 +90,7 @@ public class ChatTextFilled : MonoBehaviour {
 						yield return new WaitForSeconds (interval);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
+						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
 						if (j == textChunks [i].progressTextModular.Length - 1) {
 							//at end
 							StartCoroutine(progressText.ShowProgress("emailfirst"));
@@ -100,6 +105,7 @@ public class ChatTextFilled : MonoBehaviour {
 						yield return new WaitForSeconds (interval);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
+						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
 						if (j == textChunks [i].progressTextModular.Length - 1) {
 							//at end
 						
@@ -114,11 +120,12 @@ public class ChatTextFilled : MonoBehaviour {
 						yield return new WaitForSeconds (interval);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
+						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
 						if (j == textChunks [i].progressTextModular.Length - 1) {
 							//at end
 							//Delay Last two email for 150s
 
-							Invoke("DelaySecondEmail",100f);
+							Invoke("DelaySecondEmail",40f);
 							//how many buttons need to be enable
 						
 
@@ -129,6 +136,7 @@ public class ChatTextFilled : MonoBehaviour {
 						yield return new WaitForSeconds (interval);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
+						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
 						if (j == textChunks [i].progressTextModular.Length - 1) {
 							//at end
 
@@ -143,6 +151,7 @@ public class ChatTextFilled : MonoBehaviour {
 						yield return new WaitForSeconds (interval);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
+						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
 						if (j == textChunks [i].progressTextModular.Length - 1) {
 							//at end
 
@@ -157,6 +166,7 @@ public class ChatTextFilled : MonoBehaviour {
 						yield return new WaitForSeconds (interval);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
+						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
 						if (j == textChunks [i].progressTextModular.Length - 1) {
 							//at end
 							//how many buttons need to be enable
@@ -171,6 +181,7 @@ public class ChatTextFilled : MonoBehaviour {
 						yield return new WaitForSeconds (interval);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
+						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
 						if (j == textChunks [i].progressTextModular.Length - 1) {
 							//at end
 							//how many buttons need to be enable
@@ -184,7 +195,11 @@ public class ChatTextFilled : MonoBehaviour {
 						yield return new WaitForSeconds (interval);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
-			
+						if (j != textChunks [i].progressTextModular.Length - 1) {
+							//at end
+							//how many buttons need to be enable
+							soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
+						}
 					}
 				} else {
 					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {

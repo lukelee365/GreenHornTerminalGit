@@ -6,8 +6,8 @@ public class SoundController : MonoBehaviour
 {
 
     public AudioClip InteractiveSound;
-    
-    public AudioClip MessageSound;
+	public AudioClip artemisSound;
+	public AudioClip MessageSound;
 
     public void Start()
     {
@@ -23,6 +23,10 @@ public class SoundController : MonoBehaviour
         GetComponent<AudioSource>().Play();
 
     }
+	public void PlayArtiemisSound()
+	{
+		AudioSource.PlayClipAtPoint(artemisSound,new Vector3(0,0,0),0.5f);
+	}
     
 
 }

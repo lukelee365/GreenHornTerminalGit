@@ -46,24 +46,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\DialogueOption.cs" />
-     <Compile Include="Assets\Email1Try.cs" />
-     <Compile Include="Assets\LogInPage.cs" />
-     <Compile Include="Assets\NotificationControl.cs" />
      <Compile Include="Assets\Script\AutoScrollDown.cs" />
+     <Compile Include="Assets\Script\BallStatus.cs" />
      <Compile Include="Assets\Script\ChatTextFilled.cs" />
+     <Compile Include="Assets\Script\DialogueOption.cs" />
+     <Compile Include="Assets\Script\Email1Try.cs" />
      <Compile Include="Assets\Script\ForDebuging.cs" />
      <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\Script\GameManagerLoader.cs" />
      <Compile Include="Assets\Script\GetTextInput.cs" />
      <Compile Include="Assets\Script\LevelManager.cs" />
+     <Compile Include="Assets\Script\LogInPage.cs" />
      <Compile Include="Assets\Script\MatchTheCode.cs" />
      <Compile Include="Assets\Script\NotePadGatTextInput.cs" />
+     <Compile Include="Assets\Script\NotificationControl.cs" />
      <Compile Include="Assets\Script\PanelManager.cs" />
      <Compile Include="Assets\Script\ProgressTextFiled.cs" />
      <Compile Include="Assets\Script\SoundController.cs" />
-     <Compile Include="Assets\TransferUIHandle.cs" />
-     <Compile Include="Assets\TrasferAutoClose.cs" />
+     <Compile Include="Assets\Script\TransferUIHandle.cs" />
+     <Compile Include="Assets\Script\TrasferAutoClose.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
