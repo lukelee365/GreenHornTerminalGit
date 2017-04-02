@@ -5,45 +5,51 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LogInPage : MonoBehaviour {
-	public InputField mainFiedInput;
-	public QA[] ReplyWithAnswer;
-	public GameObject psd_Invalid;
-	// Use this for initialization
-	void Start () {
-		psd_Invalid.SetActive (false);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-	public void Post(){
+    private GameObject _userNameField;
+    private GameObject _wrongName;
+    private GameObject _mainFiedInput;
+    private GameObject _psdInvalid;
+    // Use this for initialization 
+    private void Start()
+    {
+        _mainFiedInput = GameObject.Find("InputField_Password");
+        _psdInvalid = GameObject.Find("Img_InvalidPassword");
+        _wrongName = GameObject.Find("Img_InvalidName");
+        _userNameField = GameObject.Find("InputField_Email");
+        _wrongName.SetActive(false);
+        _psdInvalid.SetActive(false);
+    }
+    public void Post(){
 		
 		Match ();
 	
 	}
 
-	//find the match for the replys
-	public void Match()
-	{
-		string inputText = mainFiedInput.text.ToLower();
-		for (int i = 0; i < ReplyWithAnswer.Length; i++) {
-			int matchcount = 0;
-			for (int j = 0; j < ReplyWithAnswer [i].Typed.Length; j++) {
-				if (inputText.Equals (ReplyWithAnswer [i].Typed [j].ToLower())) {
-					matchcount++;
-				}
-
-			}
-			if (matchcount == ReplyWithAnswer [i].Typed.Length) {
-
-				if (ReplyWithAnswer [i].Reply == "password") {
-					SceneManager.LoadScene (1);
-				}
-			} else {
-				psd_Invalid.SetActive (true);
-			}
-		}
-	}
+    //find the match for the replys 
+    public void Match()
+    {
+        _wrongName.SetActive(false);
+        _psdInvalid.SetActive(false);
+        var inputText = _mainFiedInput.GetComponent<InputField>().text.ToLower().Trim();
+        var nameText = _userNameField.GetComponent<InputField>().text.ToLower().Trim();
+        if (inputText == "password" && !string.IsNullOrEmpty(nameText))
+        {
+            SceneManager.LoadScene(1);
+        }
+        else if (inputText != "password" && string.IsNullOrEmpty(nameText))
+        {
+            _wrongName.SetActive(true);
+            _psdInvalid.SetActive(true);
+        }
+        else if (inputText != "password")
+        {
+            _psdInvalid.SetActive(true);
+        }
+        else if (string.IsNullOrEmpty(nameText))
+        {
+            _wrongName.SetActive(true);
+        }
+    }
 }
+
+
