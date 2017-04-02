@@ -31,7 +31,7 @@ public class LogInPage : MonoBehaviour {
 		for (int i = 0; i < ReplyWithAnswer.Length; i++) {
 			int matchcount = 0;
 			for (int j = 0; j < ReplyWithAnswer [i].Typed.Length; j++) {
-				if (inputText.Contains (ReplyWithAnswer [i].Typed [j].ToLower())) {
+				if (inputText.Equals (ReplyWithAnswer [i].Typed [j].ToLower())) {
 					matchcount++;
 				}
 

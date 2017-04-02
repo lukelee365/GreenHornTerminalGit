@@ -38,10 +38,10 @@ public class TransferUIHandle : MonoBehaviour {
 	}
 
 	public void ShowPasswordPage(){
-		//2 means everthing End
-		if(dialogueO.progressID == 2){
+		//5 means everthing End
+		if(dialogueO.progressID == 1){
 			step1.SetActive (true);
-			dialogueO.progressID++;
+			dialogueO.progressID = 5;
 		}
 
 	}

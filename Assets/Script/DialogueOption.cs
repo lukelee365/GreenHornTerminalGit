@@ -13,7 +13,7 @@ public class DialogueOption : MonoBehaviour {
 	public Text textPanel;
 	public  int progressID;
 	private ChatTextFilled chatText;
-
+	private AutoScrollDown autoScroll;
 	// Use this for initialization
 
 	void OnEnable(){
@@ -24,6 +24,7 @@ public class DialogueOption : MonoBehaviour {
 	}
 	void Start () {
 		chatText = GetComponent<ChatTextFilled> ();
+		autoScroll = GetComponent<AutoScrollDown> ();
 	}
 	
 	// Update is called once per frame
@@ -43,28 +44,35 @@ public class DialogueOption : MonoBehaviour {
 	void Option1_Clicked(){
 		if (dialogue_text [0].text == "How can I help ?") {
 			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"How Can I Help ?"+"</color>";
+			autoScroll.ChatScroll ();
 			StartCoroutine(chatText.ShowChat("emailfirst"));
 			progressID++;
 		} else if (dialogue_text [0].text == "Yes") {
 			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"Yes"+"</color>";
+			autoScroll.ChatScroll ();
 			StartCoroutine(chatText.ShowChat("yes"));
-			progressID++;
+		
 		}else if (dialogue_text [0].text == "Who is Vance Kalken ?") {
 			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"Who is Vance Kalken ?"+"</color>";
+			autoScroll.ChatScroll ();
 			StartCoroutine(chatText.ShowChat("vance"));
+
 		}else if (dialogue_text [0].text == "Why is he friendly with the folks from Arcadia ?") {
 			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"Why is he friendly with the folks from Arcadia ?"+"</color>";
+			autoScroll.ChatScroll ();
 			StartCoroutine(chatText.ShowChat("folks"));
 		}else if (dialogue_text [0].text == "I'm not sure what to do with this code") {
 			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"I'm not sure what to do with this code"+"</color>";
+			autoScroll.ChatScroll ();
 			StartCoroutine(chatText.ShowChat("hint"));
 		}else if (dialogue_text [0].text == "What is IPCC ?") {
 			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"What is IPCC ?"+"</color>";
-
+			autoScroll.ChatScroll ();
 			StartCoroutine(chatText.ShowChat("ipcc"));
 
 		}else if (dialogue_text [0].text == "So they don't like Arcadia's plans ?") {
 			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"So they don't like Arcadia's plans ?"+"</color>";
+			autoScroll.ChatScroll ();
 			StartCoroutine(chatText.ShowChat("arcadia"));
 
 		}
@@ -73,6 +81,7 @@ public class DialogueOption : MonoBehaviour {
 	void Option2_Clicked(){
 		if (dialogue_text [1].text == "No") {
 			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"No"+"</color>";
+			autoScroll.ChatScroll ();
 			StartCoroutine(chatText.ShowChat("no"));
 		}
 	}

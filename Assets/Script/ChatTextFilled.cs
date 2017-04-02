@@ -123,10 +123,7 @@ public class ChatTextFilled : MonoBehaviour {
 						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
 						if (j == textChunks [i].progressTextModular.Length - 1) {
 							//at end
-							//Delay Last two email for 150s
 
-							Invoke("DelaySecondEmail",40f);
-							//how many buttons need to be enable
 						
 
 						}
@@ -140,10 +137,7 @@ public class ChatTextFilled : MonoBehaviour {
 						if (j == textChunks [i].progressTextModular.Length - 1) {
 							//at end
 
-							//how many buttons need to be enable
-							dialogueO.EnableDialogueOption(2);
-							dialogueO.dialogue_text [0].text = "Yes";
-							dialogueO.dialogue_text [1].text = "No";
+					
 						}
 					}
 				}else if (chunkName == "vance") {
@@ -176,41 +170,33 @@ public class ChatTextFilled : MonoBehaviour {
 
 						}
 					}
-				}else if (chunkName == "arcadia") {
-					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
-						yield return new WaitForSeconds (interval);
-						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
-						autoScroll.ChatScroll ();
-						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
-						if (j == textChunks [i].progressTextModular.Length - 1) {
-							//at end
-							//how many buttons need to be enable
-							if (dialogueO.progressID == 1) {
-								StartCoroutine(ShowChat("emailsecond"));
-							}
-						}
-					}
 				}else if (chunkName == "end") {
 					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
 						yield return new WaitForSeconds (interval);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
-						if (j != textChunks [i].progressTextModular.Length - 1) {
-							//at end
-							//how many buttons need to be enable
-							soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
-						}
+
+					
 						if (j == textChunks [i].progressTextModular.Length - 1) {
 							//at end
 							//how many buttons need to be enable
 							dialogueO.DisableDialogueOption();
+							StartCoroutine(progressText.ShowProgress("emailforth"));
 						}
+					}
+				}else if (chunkName == "offline") {
+					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
+						yield return new WaitForSeconds (interval);
+						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
+						autoScroll.ChatScroll ();
+
 					}
 				} else {
 					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
 						yield return new WaitForSeconds (interval);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
+						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
 						if (j == textChunks [i].progressTextModular.Length - 1) {
 							//finish all the thing break the loop
 							break;
@@ -227,14 +213,15 @@ public class ChatTextFilled : MonoBehaviour {
 	}
 
 	public void ShowDialogueAboutVanceOnce(){
-		if (once) {
+		if (once&&(dialogueO.progressID<5)) {
+			dialogueO.DisableDialogueOption ();
 			dialogueO.EnableDialogueOption (1);
 			dialogueO.dialogue_text [0].text = "Who is Vance Kalken ?";
 			once = false;
 		}
 	}
 	public void OpenPassWordEmail(){
-		if (once2) {
+		if (once2&&(dialogueO.progressID<5)) {
 //			Debug.Log ("Password");
 			StartCoroutine (ShowChat ("password"));
 			once2 = false;
@@ -252,7 +239,8 @@ public class ChatTextFilled : MonoBehaviour {
 
 	void ShowDialogue(){
 		
-		if(once3){
+		if(once3&&(dialogueO.progressID<5)){
+			dialogueO.DisableDialogueOption ();
 			dialogueO.EnableDialogueOption (1);
 			dialogueO.dialogue_text [0].text = "I'm not sure what to do with this code";
 			once3 = false;
@@ -260,7 +248,7 @@ public class ChatTextFilled : MonoBehaviour {
 	}
 
 	public void OpenIPCCEmail(){
-		if (once4) {
+		if (once4&&(dialogueO.progressID<5)) {
 			dialogueO.DisableDialogueOption();
 			dialogueO.EnableDialogueOption (1);
 			dialogueO.dialogue_text [0].text = "What is IPCC ?";
