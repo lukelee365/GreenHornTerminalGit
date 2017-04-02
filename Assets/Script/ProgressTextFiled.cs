@@ -80,7 +80,7 @@ public class ProgressTextFiled : MonoBehaviour {
                             soundManager.GetComponent<SoundController>().NewMessageSound();
 
 							EnableEmailSet (EmailsSet1);
-							StartCoroutine(chatText.ShowChat("emailsecond"));// show the option
+							//StartCoroutine(chatText.ShowChat("emailsecond"));// show the option
 							Invoke("DelaySecondEmail",30f);
 							Invoke("DelayThridEmail",60f);
 							break;

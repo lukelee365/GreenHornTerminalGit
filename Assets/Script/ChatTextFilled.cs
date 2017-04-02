@@ -91,30 +91,36 @@ public class ChatTextFilled : MonoBehaviour {
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
 						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
-						if (j == textChunks [i].progressTextModular.Length - 1) {
-							//at end
+						if (j == 3) { //second Sentnece
 							StartCoroutine(progressText.ShowProgress("emailfirst"));
 							pM.PanelButtonsObjs [0].SetActive (true);
 							pM.BtnInteactAll ("Mail");
 							pM.btn_Email.SetActive (true);
 							pM.EnablePanel ("Panel_Content_Mail");
 						}
-					}
-				} else if (chunkName == "emailsecond") {
-					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
-						yield return new WaitForSeconds (interval);
-						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
-						autoScroll.ChatScroll ();
-						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
 						if (j == textChunks [i].progressTextModular.Length - 1) {
 							//at end
 						
-							//how many buttons need to be enable
 							dialogueO.EnableDialogueOption(2);
 							dialogueO.dialogue_text [0].text = "Yes";
 							dialogueO.dialogue_text [1].text = "No";
 						}
 					}
+//				} else if (chunkName == "emailsecond") {
+//					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
+//						yield return new WaitForSeconds (interval);
+//						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
+//						autoScroll.ChatScroll ();
+//						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
+//						if (j == textChunks [i].progressTextModular.Length - 1) {
+//							//at end
+//						
+//							//how many buttons need to be enable
+//							dialogueO.EnableDialogueOption(2);
+//							dialogueO.dialogue_text [0].text = "Yes";
+//							dialogueO.dialogue_text [1].text = "No";
+//						}
+//					}
 				}else if (chunkName == "yes") {
 					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
 						yield return new WaitForSeconds (interval);
@@ -166,7 +172,7 @@ public class ChatTextFilled : MonoBehaviour {
 							//how many buttons need to be enable
 
 							dialogueO.EnableDialogueOption(1);
-							dialogueO.dialogue_text [0].text = "So they don't like Arcadia's plans ?";
+							dialogueO.dialogue_text [0].text = "Why isn’t Arcadia responding ?";
 
 						}
 					}
@@ -176,11 +182,12 @@ public class ChatTextFilled : MonoBehaviour {
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
 
+						dialogueO.DisableDialogueOption();
 					
 						if (j == textChunks [i].progressTextModular.Length - 1) {
 							//at end
 							//how many buttons need to be enable
-							dialogueO.DisableDialogueOption();
+
 							StartCoroutine(progressText.ShowProgress("emailforth"));
 						}
 					}

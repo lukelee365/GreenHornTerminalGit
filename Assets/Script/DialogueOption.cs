@@ -70,8 +70,8 @@ public class DialogueOption : MonoBehaviour {
 			autoScroll.ChatScroll ();
 			StartCoroutine(chatText.ShowChat("ipcc"));
 
-		}else if (dialogue_text [0].text == "So they don't like Arcadia's plans ?") {
-			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"So they don't like Arcadia's plans ?"+"</color>";
+		}else if (dialogue_text [0].text == "Why isn’t Arcadia responding ?") {
+			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"Why isn’t Arcadia responding ?"+"</color>";
 			autoScroll.ChatScroll ();
 			StartCoroutine(chatText.ShowChat("arcadia"));
 

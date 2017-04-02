@@ -26,7 +26,7 @@ public class AutoScrollDown : MonoBehaviour {
 
 	public void ChatScroll(){
 		// When the content expand lage enough to have scrroll ball Auto Scroll it
-		if (rT_Chat.sizeDelta.y > 240) {
+		if (rT_Chat.sizeDelta.y > 450) {
 			Canvas.ForceUpdateCanvases ();
 			// add spped to scroll bar
 			sR_Chat.velocity = new Vector2 (0f, 500f);
