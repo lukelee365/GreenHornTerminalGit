@@ -18,6 +18,7 @@ public class ChatTextFilled : MonoBehaviour {
 	private bool once;  
 	private bool once2;
 	public bool once3;
+	public GameObject typingTxt;
 	private bool once4;
 	// Use this for initialization
 	void Start () {
@@ -70,7 +71,14 @@ public class ChatTextFilled : MonoBehaviour {
 				//Debug.Log(chunkName);
 				if (chunkName == "init") {
 					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
-						yield return new WaitForSeconds (interval);
+						
+						if (j!= 0) {
+							typingTxt.SetActive (true);
+						}
+						yield return new WaitForSeconds (Random.Range(2,4));
+//						if(j==1)
+//							typingTxt.SetActive (true);
+						typingTxt.SetActive (false);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
 						if (j!= 0) {
@@ -87,7 +95,9 @@ public class ChatTextFilled : MonoBehaviour {
 					}
 				}else if (chunkName == "emailfirst") {
 					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
-						yield return new WaitForSeconds (interval);
+						typingTxt.SetActive (true);
+						yield return new WaitForSeconds (Random.Range(2,4));
+						typingTxt.SetActive (false);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
 						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
@@ -123,7 +133,9 @@ public class ChatTextFilled : MonoBehaviour {
 //					}
 				}else if (chunkName == "yes") {
 					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
-						yield return new WaitForSeconds (interval);
+						typingTxt.SetActive (true);
+						yield return new WaitForSeconds (Random.Range(2,4));
+						typingTxt.SetActive (false);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
 						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
@@ -136,7 +148,9 @@ public class ChatTextFilled : MonoBehaviour {
 					}
 				}else if (chunkName == "no") {
 					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
-						yield return new WaitForSeconds (interval);
+						typingTxt.SetActive (true);
+						yield return new WaitForSeconds (Random.Range(2,4));
+						typingTxt.SetActive (false);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
 						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
@@ -148,7 +162,9 @@ public class ChatTextFilled : MonoBehaviour {
 					}
 				}else if (chunkName == "vance") {
 					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
-						yield return new WaitForSeconds (interval);
+						typingTxt.SetActive (true);
+						yield return new WaitForSeconds (Random.Range(2,4));
+						typingTxt.SetActive (false);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
 						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
@@ -163,7 +179,9 @@ public class ChatTextFilled : MonoBehaviour {
 					}
 				}else if (chunkName == "ipcc") {
 					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
-						yield return new WaitForSeconds (interval);
+						typingTxt.SetActive (true);
+						yield return new WaitForSeconds (Random.Range(2,4));
+						typingTxt.SetActive (false);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
 						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
@@ -178,7 +196,9 @@ public class ChatTextFilled : MonoBehaviour {
 					}
 				}else if (chunkName == "end") {
 					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
-						yield return new WaitForSeconds (interval);
+						typingTxt.SetActive (true);
+						yield return new WaitForSeconds (Random.Range(2,4));
+						typingTxt.SetActive (false);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
 
@@ -193,14 +213,16 @@ public class ChatTextFilled : MonoBehaviour {
 					}
 				}else if (chunkName == "offline") {
 					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
-						yield return new WaitForSeconds (interval);
+						yield return new WaitForSeconds (Random.Range(2,4));
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
 
 					}
 				} else {
 					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
-						yield return new WaitForSeconds (interval);
+						typingTxt.SetActive (true);
+						yield return new WaitForSeconds (Random.Range(2,4));
+						typingTxt.SetActive (false);
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
 						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
