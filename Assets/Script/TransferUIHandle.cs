@@ -32,6 +32,9 @@ public class TransferUIHandle : MonoBehaviour {
 			step2.SetActive (true);
             StartCoroutine(DelaySound());
             StartCoroutine(CloseStep2 ());
+			if (dialogueO.progressID == 1) {
+				dialogueO.progressID = 5;
+			}
 		} else {
 			invalidPsd.SetActive (true);
 		}
@@ -41,7 +44,6 @@ public class TransferUIHandle : MonoBehaviour {
 		//5 means everthing End
 		if(dialogueO.progressID == 1){
 			step1.SetActive (true);
-			dialogueO.progressID = 5;
 		}
 
 	}
