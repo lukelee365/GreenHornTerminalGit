@@ -81,8 +81,8 @@ public class ProgressTextFiled : MonoBehaviour {
 
 							EnableEmailSet (EmailsSet1);
 							//StartCoroutine(chatText.ShowChat("emailsecond"));// show the option
-							Invoke("DelaySecondEmail",30f);
-							Invoke("DelayThridEmail",60f);
+							//Invoke("DelaySecondEmail",30f);
+						
 							break;
 						}
 					}
@@ -144,17 +144,7 @@ public class ProgressTextFiled : MonoBehaviour {
 			}
 
 	}
-	void DelaySecondEmail(){
-		StartCoroutine (ShowProgress ("emailsecond"));
 
-		//EnableEmailSet (EmailsSet2);
-
-	}
-	void DelayThridEmail(){
-		
-		StartCoroutine (ShowProgress ("emailthird"));
-		//EnableEmailSet (EmailsSet3);
-	}
 
 
 	public void EnableEmailSet(GameObject[] Email){

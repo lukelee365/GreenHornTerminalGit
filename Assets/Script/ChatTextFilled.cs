@@ -20,6 +20,7 @@ public class ChatTextFilled : MonoBehaviour {
 	public bool once3;
 	public GameObject typingTxt;
 	private bool once4;
+	public BallStatus ballStatus;
 	// Use this for initialization
 	void Start () {
 		progressText = GetComponent<ProgressTextFiled> ();
@@ -75,7 +76,7 @@ public class ChatTextFilled : MonoBehaviour {
 						if (j!= 0) {
 							typingTxt.SetActive (true);
 						}
-						yield return new WaitForSeconds (Random.Range(2,4));
+						yield return new WaitForSeconds (Random.Range(3,4));
 //						if(j==1)
 //							typingTxt.SetActive (true);
 						typingTxt.SetActive (false);
@@ -194,6 +195,32 @@ public class ChatTextFilled : MonoBehaviour {
 
 						}
 					}
+				}else if (chunkName == "arcadia") {
+					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
+						typingTxt.SetActive (true);
+						yield return new WaitForSeconds (Random.Range(2,4));
+						typingTxt.SetActive (false);
+						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
+						autoScroll.ChatScroll ();
+						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
+						if (j == textChunks [i].progressTextModular.Length - 1) {
+							Invoke("DelaySecondEmail",3f); //sending second email after 5 sec 
+
+						}
+					}
+				}else if (chunkName == "folks") {
+					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
+						typingTxt.SetActive (true);
+						yield return new WaitForSeconds (Random.Range(2,4));
+						typingTxt.SetActive (false);
+						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
+						autoScroll.ChatScroll ();
+						soundManager.GetComponent<SoundController> ().PlayArtiemisSound ();
+						if (j == textChunks [i].progressTextModular.Length - 1) {
+							Invoke("DelayThridEmail",3f); //sending second email after 5 sec 
+
+						}
+					}
 				}else if (chunkName == "end") {
 					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
 						typingTxt.SetActive (true);
@@ -203,7 +230,7 @@ public class ChatTextFilled : MonoBehaviour {
 						autoScroll.ChatScroll ();
 
 						dialogueO.DisableDialogueOption();
-					
+
 						if (j == textChunks [i].progressTextModular.Length - 1) {
 							//at end
 							//how many buttons need to be enable
@@ -216,7 +243,9 @@ public class ChatTextFilled : MonoBehaviour {
 						yield return new WaitForSeconds (Random.Range(2,4));
 						textPanel.text = textPanel.text + "\n" + "<color=#2ce7d8>" + textChunks [i].progressTextModular [j] + "</color>";
 						autoScroll.ChatScroll ();
-
+						//ball animation happening
+						ballStatus.BallStatus1();//ball died
+						ballStatus.anim.SetBool ("SecurityBreach",false);
 					}
 				} else {
 					for (int j = 0; j < textChunks [i].progressTextModular.Length; j++) {
@@ -236,10 +265,7 @@ public class ChatTextFilled : MonoBehaviour {
 		}
 	}
 
-	void DelaySecondEmail(){
-//		Debug.Log("HereLater");
-		StartCoroutine(progressText.ShowProgress("emailsecond"));
-	}
+
 
 	public void ShowDialogueAboutVanceOnce(){
 		if (once&&(dialogueO.progressID<5)) {
@@ -252,7 +278,10 @@ public class ChatTextFilled : MonoBehaviour {
 	public void OpenPassWordEmail(){
 		if (once2&&(dialogueO.progressID<5)) {
 //			Debug.Log ("Password");
-			StartCoroutine (ShowChat ("password"));
+			dialogueO.DisableDialogueOption ();
+			dialogueO.EnableDialogueOption(1);
+			dialogueO.dialogue_text [0].text = "So I'm looking for a password ?";
+		
 			once2 = false;
 		}
 	}
@@ -265,7 +294,18 @@ public class ChatTextFilled : MonoBehaviour {
 			
 
 	}
+	void DelaySecondEmail(){
+		
+		StartCoroutine (progressText.ShowProgress ("emailsecond"));
 
+		//EnableEmailSet (EmailsSet2);
+
+	}
+	void DelayThridEmail(){
+
+		StartCoroutine (progressText.ShowProgress ("emailthird"));
+		//EnableEmailSet (EmailsSet3);
+	}
 	void ShowDialogue(){
 		
 		if(once3&&(dialogueO.progressID<5)){

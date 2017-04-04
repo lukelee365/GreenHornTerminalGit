@@ -43,7 +43,7 @@ public class DialogueOption : MonoBehaviour {
 	}
 	void Option1_Clicked(){
 		if (dialogue_text [0].text == "How can I help ?") {
-			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"How Can I Help ?"+"</color>";
+			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"How can I help ?"+"</color>";
 			autoScroll.ChatScroll ();
 			StartCoroutine(chatText.ShowChat("emailfirst"));
 			progressID++;
@@ -69,6 +69,11 @@ public class DialogueOption : MonoBehaviour {
 			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"What is IPCC ?"+"</color>";
 			autoScroll.ChatScroll ();
 			StartCoroutine(chatText.ShowChat("ipcc"));
+
+		}else if (dialogue_text [0].text == "So I'm looking for a password ?") {
+			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"So I'm looking for a password ?"+"</color>";
+			autoScroll.ChatScroll ();
+			StartCoroutine(chatText.ShowChat("password"));
 
 		}else if (dialogue_text [0].text == "Why isn’t Arcadia responding ?") {
 			textPanel.text = textPanel.text+"\n"+"<color=#99ff33>"+"[CODENAME]: "+"Why isn’t Arcadia responding ?"+"</color>";

@@ -10,33 +10,35 @@ public class BallStatus : MonoBehaviour {
 	public Color destColor;
 	public float changingColorSpeed=0.0001f;
 	public Animator anim;
+	public Material matStutas1;
+	public Material matStutas2;
+	public Material matStutas3;
+	public SkinnedMeshRenderer meshRender;
 	// Use this for initialization
 	void Start () {
 		//Dlight.color = destColor;
+		meshRender.material = matStutas2;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		transform.Rotate (Vector3.up*Time.deltaTime*rotationgSpeed);
 
-		BallColorChange(destColor);
+		//BallColorChange(destColor);
 	}
 
-//	void BallStatusLevel1ToLevel2(){
-//		Dlight.color = new Color()
-//	}
-//
-//	void BallStatusLevel2ToLevel3(){
-//		
-//	}
-//
-//	void BallStatusLevel3ToLevel2(){
-//		
-//	}
-//
-//	void BallStatusLevel2ToLevel1(){
-//
-//	}
+	public void BallStatus1(){
+		meshRender.material = matStutas1; // Grey
+		rotationgSpeed = 15f;
+	}
+	public void BallStatus2(){
+		meshRender.material = matStutas2; //Blue
+		rotationgSpeed = 15f;
+	}
+	public void BallStatus3(){
+		meshRender.material = matStutas3; //Red
+		rotationgSpeed = 15f;
+	}
 	/// <summary>
 	/**
 	/// Level 1 = blue 

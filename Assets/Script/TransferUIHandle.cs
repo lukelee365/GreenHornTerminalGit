@@ -54,12 +54,11 @@ public class TransferUIHandle : MonoBehaviour {
     }
     IEnumerator CloseStep2(){
 		//control the sexy bal
-		ballStatus.destColor = new Color (161f/255f,0,0);
-		ballStatus.anim.SetBool ("SecurityBreach",true);
+		ballStatus.BallStatus3();
+		ballStatus.anim.SetBool ("SecurityBreach",true);//ball color turn red, animation happeing
 		yield return new WaitForSecondsRealtime (closeTime);
 		step2.SetActive (false);
-		ballStatus.destColor = new Color (0,108f/255f,161f/255f);
-		ballStatus.anim.SetBool ("SecurityBreach",false);
+
 		StartCoroutine (chatText.ShowChat ("end"));
 	}
 
